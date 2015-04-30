@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<%= image_tag @product.image.url(:medium) %>
+
+<h1>
   <%= @product.name %>
-</p>
+</h1>
 
 <p>
   <strong>Description:</strong>
@@ -11,8 +12,8 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @product.price %>
+  <strong>Price: </strong>
+  <%= number_to_currency(@product.price) %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %> |
