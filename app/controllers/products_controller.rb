@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :user_only, only: [:edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -72,5 +74,11 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :description, :price, :image)
+    end
+
+    def user_only
+      if current_user != @product.user
+        redirect_to root_url, alert: "I'm sorry. You can only edit products for which you are the seller."
+      end
     end
 end

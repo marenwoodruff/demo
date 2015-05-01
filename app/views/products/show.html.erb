@@ -1,4 +1,4 @@
-<!-- <p id="notice"><%#= notice %></p> -->
+
 
 <%= image_tag @product.image.url(:medium) %>
 
@@ -16,5 +16,11 @@
   <%= number_to_currency(@product.price) %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %> |
+<p>
+  <strong>Brought to you by: </strong>
+  <%= @product.user.name %>
+</p>
+<% if current_user == @product.user %>
+	<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %> |
+<% end %>
 <%= link_to 'Back', products_path, class: "btn btn-link" %>
