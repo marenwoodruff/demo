@@ -1,5 +1,4 @@
-
-<h1>Welcome to UtopiTrade!</h1>
+<h1>Manage Your Listings</h1>
 <br />
 <div class="row">
   <% @products.each do |product| %>
@@ -25,5 +24,11 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default" %>
+  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default" %> 
 <% end %>
+
+<br />
+
+<%= link_to 'Back to Home Page', products_path, class: "btn btn-link" %>
+
+<br />
