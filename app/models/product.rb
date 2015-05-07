@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }, 
 		:path => "/:id/:style.:filename",
 		:storage => :s3,
+		:s3_protocol => 'https',
 		:s3_credentials => {
 			:bucket => ENV['S3_BUCKET_NAME'],
 			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
