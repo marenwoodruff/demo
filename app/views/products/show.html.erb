@@ -21,6 +21,7 @@
 </p>
 <% if current_user == @product.user %>
 	<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %> |
+	<!-- if the current_user is the same as the person who uploaded the product, there will be an edit product link on the bottom. otherwise, only the 'back' button will show up. -->
 <% end %>
 <%= link_to 'Back', products_path, class: "btn btn-link" %>
 
