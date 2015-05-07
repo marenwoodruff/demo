@@ -35,8 +35,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
+    # so that we can use @product.user.name in show/index and ID who uploads a product
     @product.user_id = current_user.id
-    # so that we can use @product.name in show/index and ID who uploads a product
 
     respond_to do |format|
       if @product.save

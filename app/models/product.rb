@@ -8,5 +8,11 @@ class Product < ActiveRecord::Base
   validates :image, :attachment_presence => true
 
   validates :name, :description, :price, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+
+  def price=(value)
+	  value = value.to_s.tr('$', '').to_f
+	  write_attribute(:price, value)
+	end
 
 end
