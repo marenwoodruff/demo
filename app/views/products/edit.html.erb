@@ -1,5 +1,6 @@
 <h1>Editing Product</h1>
 
+<%= image_tag @product.image.url(:thumb) %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @product, class: "btn btn-link" %> |
