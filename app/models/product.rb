@@ -2,7 +2,8 @@ class Product < ActiveRecord::Base
 	belongs_to :user
 
 	has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }, 
-		:default_url => "https://s3-us-west-2.amazonaws.com/tradedemos/missing.png"
+		:default_url => "https://s3-us-west-2.amazonaws.com/tradedemos/missing.png",
+		:s3_credentials => "#{RAILS_ROOT}/config/initializers/paperclip.rb"
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :image, :attachment_presence => true
