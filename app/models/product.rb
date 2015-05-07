@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :product_images, :reject_if => lambda { |t| t['product_image'].nil? }, :allow_destroy => true
   # allows you to manage the product_image model through the products model; won't show if there aren't any product images
+  # reject_if will make sure that emtpy product_images are not stored
 
   validates :name, :description, :price, presence: true
 
