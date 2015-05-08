@@ -8,4 +8,4 @@ Rails.application.config.paperclip_defaults = {
 		:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
 }
 
-Paperclip::Attachment.default_options[:use_timestamp] = false
+#Paperclip::Attachment.default_options[:use_timestamp] = false
