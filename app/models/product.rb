@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
 	belongs_to :user
 
 	has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }, 
-		# :path => "/:id/:style.:filename",
+		:path => "/:id/:style.:filename",
 		:storage => :s3,
 		:s3_protocol => 'https',
 		:s3_credentials => {
