@@ -1,28 +1,11 @@
-== README
+# Trade Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo that is similar to etsy.
 
-Things you may want to cover:
+## Users 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Can see all products available, but can only manage their products. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+### Possible second version where users can upload multiple images per product.
