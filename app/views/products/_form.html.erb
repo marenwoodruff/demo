@@ -27,6 +27,14 @@
     <%= f.label :image %><br>
     <%= f.file_field :image, class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :region_id %><br />
+    <%= f.collection_select :region_id, Region.order(:name), :id, :name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id, "Country" %><br />
+    <%= f.grouped_collection_select :country_id, Region.order(:name), :countries, :name, :id, :name, include_blank: true %>
+  </div>
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
