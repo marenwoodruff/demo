@@ -2,15 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# first see if the dom has loaded
 jQuery ->
+	# get the country dropdown by its ID (product_country_id)
   $('#product_country_id').parent().hide()
+  # will select all of the country options inside of the select menu to variable 'countries'
   countries = $('#product_country_id').html()
+  # .change() = will get triggered when a user selects a region
   $('#product_region_id').change ->
+  	# .text() = fetches content of the :selected item, and stores it in the region variable
     region = $('#product_region_id :selected').text()
+    # .filter()- filters by country(because of 'countries' variable)/region (because of label='region'); .html() = fetches content
     options = $(countries).filter("optgroup[label='#{region}']").html()
     if options
+    	# if any options are found, we populate the dropdown with countries
       $('#product_country_id').html(options)
+      # only show when the user selects a region
       $('#product_country_id').parent().show()
     else
-      $('#product_country_id').empty()
+    	# we won't display any options/ hidden by default; also hidden if there aren't any countries for a region
+      $('#product_country_id').empty() 
       $('#product_country_id').parent().hide()
+

@@ -36,6 +36,13 @@
       </div>
       <div class="field">
         <%= f.label :country_id, "Country" %><br />
+        <!-- grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method) -->
+        <!-- method- the attribute of object corresponding to the select tag -->
+        <!-- collection- an array of objects representing the <optgroup> tags -->
+        <!-- group method- the name of a method which, when called on a member of collection, returns an array of child objects representing the <option> tag -->
+        <!-- group_label_method- the name of a method which, when called on a member of collection, returns a string to be used as the label attribute for its <optgroup> tag -->
+        <!-- option_key_method- the name of a method which, when calledon a child object of a member of collection, returns a value to be used as the contents of its <option> tag -->
+        <!-- option_value_method- the name of a method which, when called on a child object of a member of collection, returns a value to be used as the contents of its <option> tag -->
         <%= f.grouped_collection_select :country_id, Region.order(:name), :countries, :name, :id, :name, include_blank: true %>
       </div>
       <br />
