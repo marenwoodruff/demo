@@ -1,6 +1,6 @@
 class AddFieldToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :region_id, :integer
-    add_column :users, :country_id, :integer
+    add_column :products, :region_id, :integer
+    add_column :products, :country_id, :integer
   end
 end

@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150522033421) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.integer  "region_id"
+    t.integer  "country_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -63,8 +65,6 @@ ActiveRecord::Schema.define(version: 20150522033421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "region_id"
-    t.integer  "country_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

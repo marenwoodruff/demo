@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :country
+	belongs_to :region
 
 	has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "100x100>" }, 
 		:default_url => "none"
