@@ -12,31 +12,31 @@ Country.destroy_all
 Region.create([
 	{
 		name: "Europe",
-		region_id: 1001
+		id: 1001
 	},
 	{
 		name: "Asia",
-		region_id: 1002 
+		id: 1002 
 	},
 	{
 		name: "Africa",
-		region_id: 1003 
+		id: 1003 
 	},
 	{
 		name: "Oceania",
-		region_id: 1004
+		id: 1004
 	},
 	{
 		name: "North America",
-		region_id: 1005
+		id: 1005
 	},
 	{
 		name: "South America",
-		region_id: 1006
+		id: 1006
 	},
 	{
 		name: "Central America",
-		region_id: 1007
+		id: 1007
 	}
 ])
 
@@ -50,15 +50,7 @@ Country.create([
 		region_id: 1001
 	},
 	{
-		name: "Armenia",
-		region_id: 1001
-	},
-	{
 		name: "Austria",
-		region_id: 1001
-	},
-	{
-		name: "Azerbaijan",
 		region_id: 1001
 	},
 	{
@@ -70,7 +62,7 @@ Country.create([
 		region_id: 1001
 	},
 	{
-		name: "Bosnia and Herzegovina",
+		name: "Bosnia",
 		region_id: 1001
 	},
 	{
@@ -94,7 +86,11 @@ Country.create([
 		region_id: 1001
 	},
 	{
-		name: "Estoria",
+		name: "Estonia",
+		region_id: 1001
+	},
+	{
+		name: "Faroe Islands",
 		region_id: 1001
 	},
 	{
@@ -106,15 +102,19 @@ Country.create([
 		region_id: 1001
 	},
 	{
-		name: "Georgia",
-		region_id: 1001
-	},
-	{
 		name: "Germany",
 		region_id: 1001
 	},
 	{
+		name: "Gibraltar",
+		region_id: 1001
+	},
+	{
 		name: "Greece",
+		region_id: 1001
+	},
+	{
+		name: "Guernay and Aldernay",
 		region_id: 1001
 	},
 	{
@@ -130,7 +130,15 @@ Country.create([
 		region_id: 1001
 	},
 	{
+		name: "Island of Man",
+		region_id: 1001
+	},
+	{
 		name: "Italy",
+		region_id: 1001
+	},
+	{
+		name: "Jersey",
 		region_id: 1001
 	},
 	{
@@ -222,6 +230,10 @@ Country.create([
 		region_id: 1001
 	},
 	{
+		name: "Svalbard and Jan Mayen Islands",
+		region_id: 1001
+	},
+	{
 		name: "Sweden",
 		region_id: 1001
 	},
@@ -242,11 +254,19 @@ Country.create([
 		region_id: 1001
 	},
 	{
-		name: "Vatican City (Holy Sea)*********",
+		name: "Vatican City (Holy Sea)",
 		region_id: 1001
 	},
 	{
 		name: "Afghanistan",
+		region_id: 1002
+	},
+	{
+		name: "Armenia",
+		region_id: 1002
+	},
+	{
+		name: "Azerbaijan",
 		region_id: 1002
 	},
 	{
@@ -262,7 +282,7 @@ Country.create([
 		region_id: 1002
 	},
 	{
-		name: "Brunei",
+		name: "Brunei Darussalam",
 		region_id: 1002
 	},
 	{
@@ -271,6 +291,14 @@ Country.create([
 	},
 	{
 		name: "China",
+		region_id: 1002
+	},
+	{
+		name: "Georgia",
+		region_id: 1002
+	},
+	{
+		name: "Hong Kong",
 		region_id: 1002
 	},
 	{
@@ -302,6 +330,14 @@ Country.create([
 		region_id: 1002
 	},
 	{
+		name: "Korea, North",
+		region_id: 1002
+	},
+	{
+		name: "Korea, South",
+		region_id: 1002
+	},
+	{
 		name: "Kuwait",
 		region_id: 1002
 	},
@@ -315,6 +351,10 @@ Country.create([
 	},
 	{
 		name: "Lebanon",
+		region_id: 1002
+	},
+	{
+		name: "Macao",
 		region_id: 1002
 	},
 	{
@@ -338,7 +378,75 @@ Country.create([
 		region_id: 1002
 	},
 	{
-		name: "North Korea********",
+		name: "Oman",
+		region_id: 1002
+	},
+	{
+		name: "Palestine",
+		region_id: 1002
+	},
+	{
+		name: "Pakistan",
+		region_id: 1002
+	},
+	{
+		name: "Phillipines",
+		region_id: 1002
+	},
+	{
+		name: "Qatar",
+		region_id: 1002
+	},
+	{
+		name: "Saudi Arabia",
+		region_id: 1002
+	},
+	{
+		name: "Singapore",
+		region_id: 1002
+	},
+	{
+		name: "Sri Lanka",
+		region_id: 1002
+	},
+	{
+		name: "Syria",
+		region_id: 1002
+	},
+	{
+		name: "Taiwan",
+		region_id: 1002
+	},
+	{
+		name: "Tajikistan",
+		region_id: 1002
+	},
+	{
+		name: "Thailand",
+		region_id: 1002
+	},
+	{
+		name: "Timor Leste (West)",
+		region_id: 1002
+	},
+	{
+		name: "Turkmenistan",
+		region_id: 1002
+	},
+	{
+		name: "United Arab Emirates",
+		region_id: 1002
+	},
+	{
+		name: "Uzbekistan",
+		region_id: 1002
+	},
+	{
+		name: "Vietnam",
+		region_id: 1002
+	},
+	{
+		name: "Yemen",
 		region_id: 1002
 	},
 	{
@@ -446,7 +554,123 @@ Country.create([
 		region_id: 1003
 	},
 	{
-		name: "Kenya**********",
+		name: "Kenya",
+		region_id: 1003
+	},
+	{
+		name: "Lesotho",
+		region_id: 1003
+	},
+	{
+		name: "Liberia",
+		region_id: 1003
+	},
+	{
+		name: "Libya",
+		region_id: 1003
+	},
+	{
+		name: "Madagascar",
+		region_id: 1003
+	},
+	{
+		name: "Malawi",
+		region_id: 1003
+	},
+	{
+		name: "Mali",
+		region_id: 1003
+	},
+	{
+		name: "Mauritania",
+		region_id: 1003
+	},
+	{
+		name: "Mauritius",
+		region_id: 1003
+	},
+	{
+		name: "Morocco",
+		region_id: 1003
+	},
+	{
+		name: "Mozambique",
+		region_id: 1003
+	},
+	{
+		name: "Namibia",
+		region_id: 1003
+	},
+	{
+		name: "Niger",
+		region_id: 1003
+	},
+	{
+		name: "Nigeria",
+		region_id: 1003
+	},
+	{
+		name: "Rwanda",
+		region_id: 1003
+	},
+	{
+		name: "Sao Tome and Principe",
+		region_id: 1003
+	},
+	{
+		name: "Senegal",
+		region_id: 1003
+	},
+	{
+		name: "Seychelles",
+		region_id: 1003
+	},
+	{
+		name: "Sierra Leone",
+		region_id: 1003
+	},
+	{
+		name: "Somalia",
+		region_id: 1003
+	},
+	{
+		name: "South Africa",
+		region_id: 1003
+	},
+	{
+		name: "South Sudan",
+		region_id: 1003
+	},
+	{
+		name: "Sudan",
+		region_id: 1003
+	},
+	{
+		name: "Swaziland",
+		region_id: 1003
+	},
+	{
+		name: "Tanzania",
+		region_id: 1003
+	},
+	{
+		name: "Togo",
+		region_id: 1003
+	},
+	{
+		name: "Tunisia",
+		region_id: 1003
+	},
+	{
+		name: "Uganda",
+		region_id: 1003
+	},
+	{
+		name: "Zambia",
+		region_id: 1003
+	},
+	{
+		name: "Zimbabwe",
 		region_id: 1003
 	},
 	{
@@ -506,11 +730,39 @@ Country.create([
 		region_id: 1004
 	},
 	{
-		name: "Vanuatu**********",
+		name: "Vanuatu",
 		region_id: 1004
 	},
 	{
+		name: "Anguilla",
+		region_id: 1005
+	},
+	{
+		name: "Antigua and Barbuda",
+		region_id: 1005
+	},
+	{
+		name: "Aruba",
+		region_id: 1005
+	},
+	{
+		name: "Bahamas",
+		region_id: 1005
+	},
+	{
+		name: "Barbados",
+		region_id: 1005
+	},
+	{
 		name: "Bermuda",
+		region_id: 1005
+	},
+	{
+		name: "Bonaire, Saint Eustatius and Saba",
+		region_id: 1005
+	},
+	{
+		name: "British Virgin Islands",
 		region_id: 1005
 	},
 	{
@@ -518,7 +770,71 @@ Country.create([
 		region_id: 1005
 	},
 	{
+		name: "Cayman Islands",
+		region_id: 1005
+	},
+	{
+		name: "Cuba",
+		region_id: 1005
+	},
+	{
+		name: "Curacao",
+		region_id: 1005
+	},
+	{
+		name: "Dominica",
+		region_id: 1005
+	},
+	{
+		name: "Dominican Republic",
+		region_id: 1005
+	},
+	{
+		name: "Grenada",
+		region_id: 1005
+	},
+	{
 		name: "Greenland",
+		region_id: 1005
+	},
+	{
+		name: "Guadeloupe",
+		region_id: 1005
+	},
+	{
+		name: "Haiti",
+		region_id: 1005
+	},
+	{
+		name: "Jamaica",
+		region_id: 1005
+	},
+	{
+		name: "Martinique",
+		region_id: 1005
+	},
+	{
+		name: "Monserrat",
+		region_id: 1005
+	},
+	{
+		name: "Puerto Rico",
+		region_id: 1005
+	},
+	{
+		name: "Saint-Barthelemy",
+		region_id: 1005
+	},
+	{
+		name: "St. Kitts and Nevis",
+		region_id: 1005
+	},
+	{
+		name: "Saint Lucia",
+		region_id: 1005
+	},
+	{
+		name: "Saint Martin",
 		region_id: 1005
 	},
 	{
@@ -526,7 +842,27 @@ Country.create([
 		region_id: 1005
 	},
 	{
-		name: "United States********",
+		name: "Saint Vincent and the Grenadines",
+		region_id: 1005
+	},
+	{
+		name: "Sint Maarten",
+		region_id: 1005
+	},
+	{
+		name: "Trinidad and Tobago",
+		region_id: 1005
+	},
+	{
+		name: "Turks and Caicos Islands",
+		region_id: 1005
+	},
+	{
+		name: "United States",
+		region_id: 1005
+	},
+	{
+		name: "Virgin Islands (US)",
 		region_id: 1005
 	},
 	{
@@ -582,7 +918,7 @@ Country.create([
 		region_id: 1006
 	},
 	{
-		name: "Venezuela**********",
+		name: "Venezuela",
 		region_id: 1006
 	},
 	{

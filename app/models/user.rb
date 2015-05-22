@@ -5,7 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :products, dependent: :destroy
-  belongs_to :country
-  belongs_to :region
   # validates :name, presence: true
 end
