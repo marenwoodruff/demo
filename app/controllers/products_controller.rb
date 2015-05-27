@@ -20,10 +20,13 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    7.times { @product.product_images.build }
   end
 
   # GET /products/1/edit
   def edit
+    @product = Product.new(product_params)
+    7.times { @product.product_images.build }
   end
 
   # POST /products

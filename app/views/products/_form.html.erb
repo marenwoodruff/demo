@@ -23,10 +23,10 @@
     <%= f.label :price %><br>
     <%= f.text_field :price, class: "form-control" %>
   </div>
-  <!-- <div class="form-group">
-    <%#= f.label :image %><br>
-    <%#= f.file_field :image, class: "form-control" %>
-  </div> -->
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
   <div class="form-group">
     <%= f.label :images %><br>
     <%= file_field_tag "images[]", type: :file, multiple: true, class: "form-control" %>
