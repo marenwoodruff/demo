@@ -12,31 +12,31 @@ Country.destroy_all
 Region.create([
 	{
 		name: "Europe",
-		id: 1001
+		_id: 1001
 	},
 	{
 		name: "Asia",
-		id: 1002 
+		_id: 1002 
 	},
 	{
 		name: "Africa",
-		id: 1003 
+		_id: 1003 
 	},
 	{
 		name: "Oceania",
-		id: 1004
+		_id: 1004
 	},
 	{
 		name: "North America",
-		id: 1005
+		_id: 1005
 	},
 	{
 		name: "South America",
-		id: 1006
+		_id: 1006
 	},
 	{
 		name: "Central America",
-		id: 1007
+		_id: 1007
 	}
 ])
 
