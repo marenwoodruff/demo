@@ -22,7 +22,7 @@
 
 <br>
 <div class="center">
-  <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn btn-primary" %>
+  <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn btn-primary", data: { no_turbolink: true } %>
 </div>
 
 <% if current_user == @product.user %>
