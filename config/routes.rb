@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'pages/contact'
 
   get 'seller' => "products#seller"
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
   # sets up a seller page that is associated with the products page
 
   # The priority is based upon order of creation: first created -> highest priority.
