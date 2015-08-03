@@ -21,8 +21,3 @@ payment =
       $('#stripe_error').text(response.error.message).show()
       $('input[type=submit]').attr('disabled', false)
 
-$(jQuery(function(e){
-	e.preventDefault();
-
-
-})

@@ -34,9 +34,28 @@
         <%= f.file_field :image, class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.label :region_id %><br />
-        <%= f.collection_select :region_id, Region.order(:name), :id, :name, include_blank: true %>
+      <br />
+
+      <h1>Bank Account Information</h1>
+
+      <div class="form-group">
+        <%= label_tag :country %>
+        <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :routing_number %>
+        <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
+      </div>
+      
+      <div class="form-group">
+        <%= label_tag :account_number %>
+        <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
+      </div>
+
+      <!-- <div class="field"> -->
+        <%#= f.label :region_id %><!-- <br /> -->
+        <%#= f.collection_select :region_id, Region.order(:name), :id, :name, include_blank: true %>
         <!-- <h4>Region</h4> -->
         <%#= hidden_field_tag :region_id, nil %>
           <%# Region.all.each do |region| %>
@@ -49,10 +68,10 @@
             <%#= label_tag dom_id(region), region.name %>
           <!-- </div> -->
         <%# end %>
-      </div>
+      <!-- </div> -->
 
-      <div class="field">
-        <%= f.label :country_id, "Country" %><br />
+      <!-- <div class="field"> -->
+        <%#= f.label :country_id, "Country" %><!-- <br /> -->
         <!-- grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method) -->
         <!-- method- the attribute of object corresponding to the select tag -->
         <!-- collection- an array of objects representing the <optgroup> tags -->
@@ -64,8 +83,8 @@
         <!-- :countries- name of them ethod of the children/options -->
         <!-- :name- label used for the regions -->
         <!-- :id, :name- for each child -->
-        <%= f.grouped_collection_select :country_id, Region.order(:name), :countries, :name, :id, :name, include_blank: true %>
-      </div>
+        <%#= f.grouped_collection_select :country_id, Region.order(:name), :countries, :name, :id, :name, include_blank: true %>
+      <!-- </div> -->
       <br />
       <br />
       <div class="form-group">
