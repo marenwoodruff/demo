@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :sales, class_name: "Order", foreign_key: "seller_id"
   has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
   
-  # validates :name, presence: true
+  validates :name, presence: true
 end

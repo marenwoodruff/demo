@@ -27,7 +27,7 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default" %> 
+  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default", data: { no_turbolink: true } %> 
 <% end %>
 
 <br />

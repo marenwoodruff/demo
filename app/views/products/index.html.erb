@@ -30,6 +30,6 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default" %>
+  <%= link_to 'Add a New Product', new_product_path, class: "btn btn-default", data: { no_turbolink: true } %>
   <!-- will only allow a product to be added if the user is signed in. -->
 <% end %>
