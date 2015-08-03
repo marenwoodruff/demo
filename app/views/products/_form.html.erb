@@ -18,18 +18,22 @@
         <%= f.label :name %><br>
         <%= f.text_field :name, class: "form-control" %>
       </div>
+      
       <div class="form-group">
         <%= f.label :description %><br>
         <%= f.text_area :description, class: "form-control" %>
       </div>
+      
       <div class="form-group">
         <%= f.label :price %><br>
         <%= f.text_field :price, class: "form-control" %>
       </div>
+      
       <div class="form-group">
         <%= f.label :image %><br>
         <%= f.file_field :image, class: "form-control" %>
       </div>
+
       <div class="field">
         <%= f.label :region_id %><br />
         <%= f.collection_select :region_id, Region.order(:name), :id, :name, include_blank: true %>
@@ -40,10 +44,10 @@
           <%#= label_tag Region.name %>
           <%# end %>
         <%# Region.all.each do |region| %>
-          <div>
+          <!-- <div> -->
             <%#= check_box_tag :region_id, region.id, @product.id.include?(region.id), id: dom_id(region) %>
             <%#= label_tag dom_id(region), region.name %>
-          </div>
+          <!-- </div> -->
         <%# end %>
       </div>
 
@@ -56,6 +60,10 @@
         <!-- group_label_method- the name of a method which, when called on a member of collection, returns a string to be used as the label attribute for its <optgroup> tag -->
         <!-- option_key_method- the name of a method which, when calledon a child object of a member of collection, returns a value to be used as the contents of its <option> tag -->
         <!-- option_value_method- the name of a method which, when called on a child object of a member of collection, returns a value to be used as the contents of its <option> tag -->
+        <!-- Region.order(:name)- items we want to filter by -->
+        <!-- :countries- name of them ethod of the children/options -->
+        <!-- :name- label used for the regions -->
+        <!-- :id, :name- for each child -->
         <%= f.grouped_collection_select :country_id, Region.order(:name), :countries, :name, :id, :name, include_blank: true %>
       </div>
       <br />

@@ -91,3 +91,34 @@ class ProductsController < ApplicationController
       # checks to see if the current_user is the same person who created the product listing
     end
 end
+
+# destroying all of the user's fair_trade_certs
+      #@user.fair_trade_certs.destroy_all
+      # grabbing the names of the checkboxes and calling .each method on each checkbox_id - thereby creating a new user_fair_trade_cert relationship
+      # params[:user][:fair_trade_cert_ids].each do |cert_id| 
+      #   UserFairTradeCert.create(user_id: current_user.id, fair_trade_cert_id: cert_id.to_i)
+      # end
+# <%= hidden_field_tag "user[cause_ids][]", nil %>
+#         <% Cause.all.each do |cause| %>
+#           <div>
+#             <%= check_box_tag "user[cause_ids][]", cause.id, @user.cause_ids.include?(cause.id), id: dom_id(cause) %>
+#             <%= image_tag image_path(cause.logo_path) %>
+#             <%= label_tag dom_id(cause), cause.name, id: dom_id(cause) %>
+#             <p><%= cause.description %></p>
+#           </div>
+#         <% end %>
+
+# <div class="form-group cause">
+#   <h2><b>Causes <small>(Choose up to 3)</small></b></h2>
+#   <p>These can include initiatives your company or the sale of your products support.</p>
+#   <br />
+#   <%= hidden_field_tag "user[cause_ids][]", nil %>
+#   <% Cause.all.each do |cause| %>
+#     <div>
+#       <%= check_box_tag "user[cause_ids][]", cause.id, @user.cause_ids.include?(cause.id), id: dom_id(cause) %>
+#       <%= image_tag image_path(cause.logo_path), size: "50x50" %>
+#       <%= label_tag dom_id(cause), cause.name, id: cause.name %>
+#       <p class="description"><%= cause.description %></p>
+#     </div>
+#   <% end %>
+# </div>
