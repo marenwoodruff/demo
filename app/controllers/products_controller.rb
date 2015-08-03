@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   # devise/rails will check whether the user is signed in before it allows any of these actions to happen
   before_filter :user_only, only: [:edit, :update, :destroy]
-  # makes sure that a user can't edit/update/destroy a listing that isn't associated with them
+  # makes sure that a user can't edit/update/destroy a product that isn't associated with them
 
   def seller
     @products = Product.where(user: current_user)
@@ -84,11 +84,11 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :price, :image)
     end
 
+    # checks to see if the current_user is the same person who created the product product
     def user_only
       if current_user != @product.user
         redirect_to root_url, alert: "I'm sorry. You can only edit products for which you are the seller."
       end
-      # checks to see if the current_user is the same person who created the product listing
     end
 end
 

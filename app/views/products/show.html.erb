@@ -20,6 +20,11 @@
   <%= @product.user.name %>
 </p>
 
+<br>
+<div class="center">
+  <%= link_to "Buy It Now", new_product_order_path(@product), class: "btn btn-primary" %>
+</div>
+
 <% if current_user == @product.user %>
 	<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-link" %> |
 	<!-- if the current_user is the same as the person who uploaded the product, there will be an edit product link on the bottom. otherwise, only the 'back' button will show up. -->
