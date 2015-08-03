@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :products do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
 
   get 'pages/about'
