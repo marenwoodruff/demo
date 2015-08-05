@@ -29,11 +29,18 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.buyer_id = current_user.id
+
     # Stripe.api_key = ENV["STRIPE_API_KEY"]
     # token = params[:stripeToken]
 
     respond_to do |format|
       if @order.save_with_payment
+        charge = Stripe::Charge.create(
+                  :amount => @price * 100,
+                  :currency => "usd",
+                  :source => params[:stripeToken],
+                  :description => "Test Charge"
+        )
         format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
       else
