@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     transfer = Stripe::Transfer.create(
       :amount => (@product.price * 95).floor,
       :currency => "usd",
-      :recipient => @seller.recipient
+      :destination => @seller.recipient
       )
 
     respond_to do |format|
