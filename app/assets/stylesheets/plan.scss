@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #plans {
-  background-image: image-url("teacup-yorkie.jpg");
   background-repeat: no-repeat;
   /*background-position: 480px -10px;*/
   margin: 0 auto;
@@ -22,8 +21,8 @@
     width: 150px;
     text-align: center;
     margin-right: 10px;
-    margin-top: 250px;
-    margin-left: 20px;
+    #margin-top: 250px;
+    margin-left: 30px;
     .name {
       color: #FFF;
       padding: 5px 0;

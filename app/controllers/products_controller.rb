@@ -36,22 +36,22 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     # so that we can use @product.user.name in show/index and ID who uploads a product
-    @product.user_id = current_user.id
+    # @product.user_id = current_user.id
 
-    if current_user.recipient.blank?
-      require "stripe"
-      Stripe.api_key = ENV["STRIPE_API_KEY"]
-      token = params[:stripeToken]
+    # if current_user.recipient.blank?
+    #   require "stripe"
+    #   Stripe.api_key = ENV["STRIPE_API_KEY"]
+    #   token = params[:stripeToken]
 
-      recipient = Stripe::Account.create( 
-        :managed => false, 
-        :country => 'US', 
-        :email => current_user.email 
-        )  
+    #   recipient = Stripe::Account.create( 
+    #     :managed => false, 
+    #     :country => 'US', 
+    #     :email => current_user.email 
+    #     )  
 
-      current_user.recipient = recipient.id
-      current_user.save
-    end
+    #   current_user.recipient = recipient.id
+    #   current_user.save
+    # end
     
     respond_to do |format|
       if @product.save

@@ -6,8 +6,11 @@ payment =
   setupForm: ->
     $('#new_order').submit ->
         $('input[type=submit]').attr('disabled', true)
-        payment.processCard()
-        false
+        if $('#card_number').length
+          payment.processCard()
+          false
+        else
+          true
   
   processCard: ->
     card =
