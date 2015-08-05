@@ -18,44 +18,46 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
-    @product = Product.find(params[:product_id])
+    # @order = Order.new
+    # @product = Product.find(params[:product_id])
+    plan = Plan.find(params[:plan_id])
+    @order = plan.orders.build
   end
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @product = Product.find(params[:product_id])
-    @seller = @product.user
+    # @product = Product.find(params[:product_id])
+    # @seller = @product.user
 
-    @order.product_id = @product.id
-    @order.buyer_id = current_user.id
-    @order.seller_id = @seller.id
+    # @order.product_id = @product.id
+    # @order.buyer_id = current_user.id
+    # @order.seller_id = @seller.id
 
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
 
-    begin
-      charge = Stripe::Charge.create(
-        :amount => (@product.price * 100).floor,
-        :currency => "usd",
-        :card => token
-        )
-      flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
-    end
+    # begin
+    #   charge = Stripe::Charge.create(
+    #     :amount => (@product.price * 100).floor,
+    #     :currency => "usd",
+    #     :card => token
+    #     )
+    #   flash[:notice] = "Thanks for ordering!"
+    # rescue Stripe::CardError => e
+    #   flash[:danger] = e.message
+    # end
 
-    transfer = Stripe::Transfer.create(
-      :amount => (@product.price * 95).floor,
-      :currency => "usd",
-      :destination => @seller.recipient
-      )
+    # transfer = Stripe::Transfer.create(
+    #   :amount => (@product.price * 95).floor,
+    #   :currency => "usd",
+    #   :destination => @seller.recipient
+    #   )
 
     respond_to do |format|
-      if @order.save
-        format.html { redirect_to root_url, notice: 'Order was successfully created.' }
+      if @order.save_with_payment
+        format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

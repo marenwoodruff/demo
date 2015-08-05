@@ -41,7 +41,11 @@
 
       <br />
 
-      <% if current_user.recipient.blank? %>
+      <% if current_user.recipient %>
+
+        <p>Bank account information has been provided.</p>
+
+      <% else %>
 
         <h1>Bank Account Information</h1>
 

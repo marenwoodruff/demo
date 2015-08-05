@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root 'products#index'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :products do
-    resources :orders, only: [:new, :create]
-  end
+  resources :products # do
+    resources :orders#, only: [:new, :create]
+  # end
+
+  resources :plans
 
   get 'pages/about'
 

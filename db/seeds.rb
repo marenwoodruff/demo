@@ -6,6 +6,12 @@
 # #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Plan.destroy_all
+
+Plan.create!(:name => "$14 (monthly plan)", :price => 14)
+Plan.create!(:name => "$16 (monthly plan)", :price => 16)
+Plan.create!(:name => "$18 (monthly plan)", :price => 18)
+
 # Region.destroy_all
 # Country.destroy_all
 

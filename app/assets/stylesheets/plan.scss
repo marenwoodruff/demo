@@ -1,0 +1,83 @@
+// Place all the styles related to the Subscription controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#plans {
+  background-image: image-url("teacup-yorkie.jpg");
+  background-repeat: no-repeat;
+  /*background-position: 480px -10px;*/
+  margin: 0 auto;
+  padding-top: 60px;
+  margin-bottom: 100px;
+  width: 650px;
+  height: 500px;
+  h1 {
+    font-size: 65px;
+    font-family: Georgia, Times;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  .plan {
+    float: left;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 250px;
+    margin-left: 20px;
+    .name {
+      color: #FFF;
+      padding: 5px 0;
+      border: solid 1px #8f4144;
+      border-bottom: none;
+      background: #ead6d1;
+      background: -webkit-gradient(linear, left top, left bottom, from(#8f4144), to(#d29c9f));
+      background: -moz-linear-gradient(top,  #ead1d2,  #d29c9f);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ead1d2', endColorstr='#d29c9f');
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+    }
+    .details {
+      padding-top: 5px;
+      border: solid 1px #8f4144;
+      background-color: #ead6d1;
+      border-top: none;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+    }
+    .price {
+      font-size: 50px;
+    }
+    .per_month {
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #5E5E5E;
+    }
+    .signup {
+      margin: 20px;
+      a {
+        font-size: 13px;
+        padding: 5px 10px 6px 10px;
+        font-weight: bold;
+        border: 1px solid #9cd2d0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        color: #FFF;
+        background: #234c4b;
+        background: -webkit-gradient(linear, left top, left bottom, from(#234c4b), to(#9cd2d0));
+        background: -moz-linear-gradient(top,  #234c4b,  #9cd2d0);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#234c4b', endColorstr='#9cd2d0');
+        text-decoration: none;
+        /*text-shadow: 0 -1px 0 #036;*/
+      }
+    }
+  }
+}
