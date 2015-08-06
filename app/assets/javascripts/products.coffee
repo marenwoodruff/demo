@@ -6,7 +6,7 @@ product =
   setupForm: ->
     $('#new_product').submit ->
       if $('input').length > 6
-        $('input[type=submit]').attr('disabled', true)
+        $('input[type=submit]').prop('disabled', true)
         Stripe.bankAccount.createToken($('#new_product'), product.handleStripeResponse)
         false
 
@@ -16,6 +16,6 @@ product =
       $('#new_product')[0].submit()
     else
       $('#stripe_error').text(response.error.message).show()
-      $('input[type=submit]').attr('disabled', false)
+      $('input[type=submit]').prop('disabled', false)
 
 
