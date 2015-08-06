@@ -15,12 +15,6 @@ class Order < ActiveRecord::Base
       customer = Stripe::Customer.create(email: buyer.email,
         plan: plan_id, card: stripe_card_token)
 
-     #  charge = Stripe::Charge.create(
-     #    :customer    => customer.id,
-     #    :amount      => @order.plan.price,
-     #    :description => @order.plan.name,
-     #    :currency    => 'usd'
-     # )
       self.stripe_customer_token = customer.id
       save!
     end

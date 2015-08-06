@@ -32,9 +32,6 @@ class OrdersController < ApplicationController
     @plan = Plan.find(params[:order][:plan_id])
     @order.buyer_id = current_user.id
 
-    # Stripe.api_key = ENV["STRIPE_API_KEY"]
-    # token = params[:stripeToken]
-
     respond_to do |format|
       if @order.save_with_payment
         charge = Stripe::Charge.create(
