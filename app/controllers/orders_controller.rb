@@ -35,21 +35,21 @@ class OrdersController < ApplicationController
     customer = Stripe::Customer.create(
                   :email => current_user.email,
                   :plan => params[:plan_id],
-                  :card  => params[:stripe_card_token]
+                  :card => params[:stripe_card_token]
     )
 
     charge = Stripe::Charge.create(
+                  :customer => customer.id,
                   :amount => @plan.price.to_i * 100,
                   :currency => "usd",
-                  :customer => customer.id,
-                  :description => "Test Charge"
+                  :description => @plan.name
     )
 
     redirect_to root_url, notice: 'Thank you for subscribing.'
 
   rescue Stripe::CardError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    render :new, notice: "There was a problem with your credit card."
+    flash[:error] = e.message
+    redirect_to plans_url
 
   end
 
