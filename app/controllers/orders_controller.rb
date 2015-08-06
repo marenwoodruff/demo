@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @plan = Plan.find(params[:plan_id])
     @order.buyer_id = current_user.id
 
     # Stripe.api_key = ENV["STRIPE_API_KEY"]
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save_with_payment
         charge = Stripe::Charge.create(
-                  :amount => @price * 100,
+                  :amount => @plan.price * 100,
                   :currency => "usd",
                   :source => params[:stripeToken],
                   :description => "Test Charge"
