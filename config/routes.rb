@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # end
 
   resources :plans #do
-    resources :orders#, only: [:new, :create]
+  resources :orders#, only: [:new, :create]
   #end
 
   get 'pages/about'
