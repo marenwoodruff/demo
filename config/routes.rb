@@ -7,11 +7,7 @@ Rails.application.routes.draw do
     # resources :orders#, only: [:new, :create]
   # end
 
-<<<<<<< HEAD
-  resources :plans 
-=======
   resources :plans
->>>>>>> 1c37fd31b37d1eee57a5fa616788b895a5eed8d5
   resources :orders
 
   get 'pages/about'
