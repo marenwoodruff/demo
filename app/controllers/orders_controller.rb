@@ -34,8 +34,8 @@ class OrdersController < ApplicationController
 
     customer = Stripe::Customer.create(
                   :email => current_user.email,
-                  :plan => params[:plan_id],
-                  :card  => params[:stripe_card_token]
+                  # :plan => params[:plan_id],
+                  :card => params[:stripe_card_token]
     )
 
     charge = Stripe::Charge.create(
@@ -50,7 +50,6 @@ class OrdersController < ApplicationController
   rescue Stripe::CardError => e
     logger.error "Stripe error while creating customer: #{e.message}"
     render :new, notice: "There was a problem with your credit card."
-
   end
 
   private
