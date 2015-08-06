@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	# validates :address, :city, :state, presence: true
+	# validates :address, :city, :state, zip, presence: true
 
 	belongs_to :product
 	belongs_to :plan
@@ -15,12 +15,6 @@ class Order < ActiveRecord::Base
       customer = Stripe::Customer.create(email: buyer.email,
         plan: plan_id, card: stripe_card_token)
 
-     #  charge = Stripe::Charge.create(
-     #    :customer    => customer.id,
-     #    :amount      => @order.plan.price,
-     #    :description => @order.plan.name,
-     #    :currency    => 'usd'
-     # )
       self.stripe_customer_token = customer.id
       save!
     end

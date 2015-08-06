@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    # @order = Order.new
     # @product = Product.find(params[:product_id])
     @plan = Plan.find(params[:plan_id])
     @order = @plan.orders.build
@@ -32,21 +31,19 @@ class OrdersController < ApplicationController
     @plan = Plan.find(params[:order][:plan_id])
     @order.buyer_id = current_user.id
 
-    # Stripe.api_key = ENV["STRIPE_API_KEY"]
-    # token = params[:stripeToken]
-
     respond_to do |format|
       if @order.save_with_payment
         charge = Stripe::Charge.create(
+                  :customer => params[:stripe_customer_token],
+                  :source => params[:stripe_card_token],
                   :amount => @plan.price.to_i * 100,
                   :currency => "usd",
-                  :source => params[:stripe_card_token],
-                  :description => "Test Charge"
+                  :description => "Subscription Test Charge"
         )
         format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { redirect_to back, notice: 'Not yet working.' }
+        format.html { redirect_to back, notice: 'There was a problem with your credit card.' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -60,6 +57,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :state)
+      params.require(:order).permit(:address, :city, :state, :plan_id, :stripe_customer_token, :buyer_id, :seller_id, :product_id)
     end
 end
