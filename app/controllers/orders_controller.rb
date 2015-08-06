@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
 
     customer = Stripe::Customer.create(
                   :email => current_user.email,
-                  :plan => @plan_id,
+                  :plan => params[:plan_id],
                   :card  => params[:stripe_card_token]
     )
 
@@ -46,26 +46,11 @@ class OrdersController < ApplicationController
     )
 
     redirect_to root_url, notice: 'Thank you for subscribing.'
-    
+
   rescue Stripe::CardError => e
     logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card."
+    render :new, notice: "There was a problem with your credit card."
 
-    # respond_to do |format|
-    #   if @order.save_with_payment
-    #     charge = Stripe::Charge.create(
-    #               :amount => @plan.price.to_i * 100,
-    #               :currency => "usd",
-    #               :source => params[:stripe_card_token],
-    #               :description => "Test Charge"
-    #     )
-    #     format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
-    #     format.json { render :show, status: :created, location: @order }
-    #   else
-    #     format.html { redirect_to back, notice: 'There was an internal server error. Please be patient while we fix the issue. Thank you!' }
-    #     format.json { render json: @order.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   private

@@ -14,7 +14,7 @@ $(document).ready(function(){
     else {
       // token contains id, last4, and card type
       var token = response.id;
-      alert(token);
+      // alert(token);
 
       // Insert the token into the form so it gets submitted to the server
       $form.append($('<input type="hidden" name="stripe_card_token" />').val(token));
