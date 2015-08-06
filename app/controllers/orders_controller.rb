@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    # @order = Order.new
     # @product = Product.find(params[:product_id])
     @plan = Plan.find(params[:plan_id])
     @order = @plan.orders.build
