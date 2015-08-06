@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	validates :address, :city, :state, presence: true
+	# validates :address, :city, :state, presence: true
 
 	belongs_to :product
 	belongs_to :plan

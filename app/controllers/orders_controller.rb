@@ -21,7 +21,8 @@ class OrdersController < ApplicationController
     # @order = Order.new
     # @product = Product.find(params[:product_id])
     @plan = Plan.find(params[:plan_id])
-    @order = @plan.orders.build
+    @order = @plan.orders.create
+    puts @order
   end
 
   # POST /orders
@@ -45,7 +46,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { redirect_to back, notice: 'Not yet working.' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
