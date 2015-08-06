@@ -31,18 +31,26 @@ class OrdersController < ApplicationController
     @plan = Plan.find(params[:order][:plan_id])
     @order.buyer_id = current_user.id
 
+    customer = Stripe::Customer.create(email: current_user.email,
+      plan: @plan_id, card: params[:stripe_card_token])
+
+    # self.stripe_customer_token = customer.id
+
+    # Stripe.api_key = ENV["STRIPE_API_KEY"]
+    token = params[:stripe_card_token]
+
     respond_to do |format|
       if @order.save_with_payment
         charge = Stripe::Charge.create(
                   :amount => @plan.price.to_i * 100,
                   :currency => "usd",
-                  :source => params[:stripe_card_token],
+                  :source => token,
                   :description => "Test subscription"
         )
         format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { redirect_to back, notice: 'There was a problem with your credit card.' }
+        format.html { redirect_to back, notice: 'There was a problem on our side. It will be fixed shortly. Please be patient.' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
