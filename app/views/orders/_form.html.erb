@@ -60,37 +60,30 @@
         <%#= f.text_field :zip_code, class: "form-control" %>
       </div> -->
 
-      <% if @order.stripe_card_token.present? %>
-
-        Credit card has been provided.
-      
-      <% else %>
-
       <div class="form-group">
         <div class="row">
           <div class="col-md-8">
             <%= label_tag :card_number, "Credit Card Number" %>
-              <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
-            </div>
-            <div class="col-md-4">
-              <%= label_tag :card_code, "CVC" %>
-              <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
-            </div>
+            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
+          </div>
+          <div class="col-md-4">
+            <%= label_tag :card_code, "CVC" %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
           </div>
         </div>
-        <div class="form-group">
-          <%= label_tag :card_month, "Expiration Date" %>
-          <div class="row">
-            <div class="col-md-3">
-              <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control", id: "card_month" } %>
-            </div>
-            <div class="col-md-3">
-              <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control", id: "card_year" } %>
-            </div>
+      </div>
+      
+      <div class="form-group">
+        <%= label_tag :card_month, "Expiration Date" %>
+        <div class="row">
+          <div class="col-md-3">
+            <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control", id: "card_month" } %>
+          </div>
+          <div class="col-md-3">
+            <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control", id: "card_year" } %>
           </div>
         </div>
-
-      <% end %>
+      </div>
 
       <div class="form-group">
         <%= f.submit 'Complete Order', class: "btn btn-default" %>

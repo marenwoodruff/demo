@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     # @product = Product.find(params[:product_id])
     @plan = Plan.find(params[:plan_id])
     @order = @plan.orders.build
-    puts @order
+    # puts @order
   end
 
   # POST /orders
@@ -31,17 +31,20 @@ class OrdersController < ApplicationController
     @plan = Plan.find(params[:order][:plan_id])
     @order.buyer_id = current_user.id
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripe_card_token]
+    # Stripe.api_key = ENV["STRIPE_API_KEY"]
+    # token = params[:stripe_card_token]
+    # puts token
 
     respond_to do |format|
       if @order.save_with_payment
+        # puts @order
         charge = Stripe::Charge.create(
                   :customer => params[:stripe_customer_token],
                   :source => params[:stripe_card_token],
+                  # :card => token,
                   :amount => @plan.price.to_i * 100,
                   :currency => "usd",
-                  :description => "Subscription Test Charge"
+                  :description => @plan.name
         )
         format.html { redirect_to root_url, notice: 'Thank you for subscribing.' }
         format.json { render :show, status: :created, location: @order }
