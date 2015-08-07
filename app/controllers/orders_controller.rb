@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @plan = Plan.find(params[:order][:plan_id])
 
-    # Stripe.api_key = ENV['API_KEY']
+    Stripe.api_key = ENV['API_KEY']
 
     customer = Stripe::Customer.create(
                   email: current_user.email,
