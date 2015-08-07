@@ -31,9 +31,6 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @plan = Plan.find(params[:order][:plan_id])
 
-    # @plan.id = params[:plan_id]
-    # plan = Stripe::Plan.retrieve(plan_id)
-
     puts params
     customer = Stripe::Customer.create(
                   :email => current_user.email,
