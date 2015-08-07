@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805192531) do
+ActiveRecord::Schema.define(version: 20150806152328) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "address"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150805192531) do
     t.integer  "product_id"
     t.string   "stripe_customer_token"
     t.integer  "plan_id"
+    t.string   "zip_code"
   end
 
   create_table "plans", force: :cascade do |t|
