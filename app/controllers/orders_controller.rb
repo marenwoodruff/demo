@@ -30,19 +30,20 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @plan = Plan.find(params[:order][:plan_id])
-    # @order.buyer_id = current_user.id
+
+    # Stripe.api_key = ENV['API_KEY']
 
     customer = Stripe::Customer.create(
-                  :email => current_user.email,
-                  :plan => params[:plan_id],
-                  :card => params[:stripe_card_token]
+                  email: current_user.email,
+                  plan: params[:plan_id],
+                  source: params[:stripe_card_token]
     )
 
     charge = Stripe::Charge.create(
-                  :customer => customer.id,
-                  :amount => @plan.price.to_i * 100,
-                  :currency => "usd",
-                  :description => @plan.name
+                  customer: customer.id,
+                  amount: @plan.price.to_i * 100,
+                  currency: "usd",
+                  description: @plan.name
     )
 
     redirect_to root_url, notice: 'Thank you for subscribing.'
@@ -50,7 +51,6 @@ class OrdersController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to plans_url
-
   end
 
   private

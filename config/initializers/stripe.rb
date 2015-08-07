@@ -1,6 +1,6 @@
 Rails.configuration.stripe = {
-  :publishable_key => stripe_config[:publishable_key],
-  :secret_key      => stripe_config[:secret_key]
+  :publishable_key => ENV['PUBLISHABLE_KEY'],
+  :secret_key      => ENV['API_KEY']
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]

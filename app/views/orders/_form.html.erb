@@ -1,10 +1,5 @@
 <div class="row">
   <div class="col-md-4">
-    <!--     <div class="thumbnail">
-      <%#= image_tag @product.image.url %>
-    </div>
-    <h3><%#= @product.name %></h3>
-    <h4><%#= number_to_currency(@product.price) %></h4> -->
     <h1>Signing up for: <br /><%= @order.plan.name %></h1>
     <strong>Only <%= number_to_currency @order.plan.price %></strong> per month!</p>
   </div>
