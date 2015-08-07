@@ -28,25 +28,17 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new#(order_params)
-    # @plan = Plan.find(params[:order][:plan_id])
+    @order = Order.new(order_params)
+    @plan = Plan.find(params[:order][:plan_id])
 
-    @plan_id = params[:plan_id]
+    # @plan.id = params[:plan_id]
     # plan = Stripe::Plan.retrieve(plan_id)
 
+    puts params
     customer = Stripe::Customer.create(
                   :email => current_user.email,
-                  :plan => 1,
+                  :plan => @plan.id,
                   :card  => params[:stripe_card_token]
-    )
-
-    # stripe_subscription = customer.subscriptions.create(:plan_id => plan.id)
-
-    charge = Stripe::Charge.create(
-                  :amount => 14 * 100,
-                  :currency => "usd",
-                  :customer => customer.id,
-                  :description => "Test Charge"
     )
 
     redirect_to root_url, notice: 'Thank you for subscribing.'
@@ -63,7 +55,7 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def order_params
-    #   params.require(:order).permit(:address, :city, :state, :plan_id, :stripe_customer_token, :buyer_id, :seller_id, :product_id)
-    # end
+    def order_params
+      params.require(:order).permit(:address, :city, :state, :plan_id, :stripe_customer_token, :buyer_id, :seller_id, :product_id)
+    end
 end
