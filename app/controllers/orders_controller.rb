@@ -30,13 +30,17 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @plan = Plan.find(params[:order][:plan_id])
-    # @order.buyer_id = current_user.id
+
+    # plan_id = params[:plan_id]
+    # plan = Stripe::Plan.retrieve(plan_id)
 
     customer = Stripe::Customer.create(
                   :email => current_user.email,
                   :plan => @plan_id,
                   :card  => params[:stripe_card_token]
     )
+
+    # stripe_subscription = customer.subscriptions.create(:plan_id => @plan.id)
 
     charge = Stripe::Charge.create(
                   :amount => @plan.price.to_i * 100,
