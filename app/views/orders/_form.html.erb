@@ -46,7 +46,7 @@
   </div>
   
   <div class="col-md-8">
-    <%= form_tag orders_path(@order), :id => "payment-form", :class => "form" do %>
+    <%= form_tag orders_path, :id => "payment-form", :class => "form" do %>
       <% if @order.errors.any? %>
         <div id="error_explanation" class="alert alert-danger alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -64,7 +64,6 @@
         <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
       </div>
 
-      <%#= f.hidden_field :plan_id %>
       <%= hidden_field_tag :plan_id %>
 
       <div class="form-group">
@@ -109,7 +108,6 @@
       <% end %>
 
       <div class="form-group">
-        <%#= f.submit 'Complete Order', class: "btn btn-default" %>
         <%= submit_tag 'Complete Order', class: "btn btn-default" %>
       </div>
     <% end %>
