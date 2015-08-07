@@ -48,8 +48,8 @@ class OrdersController < ApplicationController
     redirect_to root_url, notice: 'Thank you for subscribing.'
 
   rescue Stripe::CardError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    render :new
+    flash[:error] = e.message
+    redirect_to plans_url
   end
 
   private
