@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
 
   attr_accessor :stripe_card_token
 
-  # validates :address, :city, :state, :zip_code, presence: true
+  # validates :address, :city, :state, presence: true
   # validates_presence_of :plan_id
 
 end

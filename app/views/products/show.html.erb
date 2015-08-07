@@ -22,7 +22,7 @@
 
 <br>
 <div class="center">
-  <%= link_to "Subscribe to this seller", plans_path, class: "btn btn-primary", data: { no_turbolink: true } %>
+  <%= link_to "Subscribe to this Jewelry Line", plans_path, class: "btn btn-primary", data: { no_turbolink: true } %>
 </div>
 
 <% if current_user == @product.user %>
@@ -30,3 +30,4 @@
 	<!-- if the current_user is the same as the person who uploaded the product, there will be an edit product link on the bottom. otherwise, only the 'back' button will show up. -->
 <% end %>
 <%= link_to 'Back', products_path, class: "btn btn-link" %>
+
