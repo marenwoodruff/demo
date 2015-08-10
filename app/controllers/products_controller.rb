@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     # so that we can use @product.user.name in show/index and ID who uploads a product
-    # @product.user_id = current_user.id
+    @product.user_id = current_user.id
 
     # if current_user.recipient.blank?
     #   require "stripe"
