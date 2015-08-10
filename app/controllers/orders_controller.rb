@@ -31,11 +31,12 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @plan = Plan.find(params[:order][:plan_id])
 
-    puts params
+    token = params[:stripe_card_token]
+
     customer = Stripe::Customer.create(
                   :email => current_user.email,
                   :plan => @plan.id,
-                  :card  => params[:stripe_card_token]
+                  :card  => token
     )
 
     redirect_to root_url, notice: 'Thank you for subscribing.'
