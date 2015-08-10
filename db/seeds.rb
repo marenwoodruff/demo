@@ -8,9 +8,24 @@
 
 Plan.destroy_all
 
-Plan.create!(:name => "$14 (monthly plan)", :price => 14)
-Plan.create!(:name => "$16 (monthly plan)", :price => 16)
-Plan.create!(:name => "$18 (monthly plan)", :price => 18)
+Plan.create!(name: "$1 (monthly plan)", price: 1)
+Plan.create!(name: "$2 (monthly plan)", price: 2)
+Plan.create!(name: "$3 (monthly plan)", price: 3)
+Plan.create!(name: "$4 (monthly plan)", price: 4)
+Plan.create!(name: "$5 (monthly plan)", price: 5)
+Plan.create!(name: "$6 (monthly plan)", price: 6)
+Plan.create!(name: "$7 (monthly plan)", price: 7)
+Plan.create!(name: "$8 (monthly plan)", price: 8)
+Plan.create!(name: "$9 (monthly plan)", price: 9)
+Plan.create!(name: "$10 (monthly plan)", price: 10)
+Plan.create!(name: "$11 (monthly plan)", price: 11)
+Plan.create!(name: "$12 (monthly plan)", price: 12)
+Plan.create!(name: "$13 (monthly plan)", price: 13)
+Plan.create!(name: "$14 (monthly plan)", price: 14)
+Plan.create!(name: "$15 (monthly plan)", price: 15)
+Plan.create!(name: "$16 (monthly plan)", price: 16)
+Plan.create!(name: "$17 (monthly plan)", price: 17)
+Plan.create!(name: "$18 (monthly plan)", price: 18)
 
 # Region.destroy_all
 # Country.destroy_all
